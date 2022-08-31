@@ -1,0 +1,41 @@
+// javascript
+const opts = {
+    path: '127.0.0.1/wd/hub',
+    port: 4723,
+    capabilities: {
+        platformName: "Android",
+        platformVersion: "8.0.0",
+        deviceName: "Samsung Galaxy S7",
+        udid: "ce011821d905c4400d",
+        appPackage: "com.sec.android.app.popupcalculator",
+        appActivity: "com.sec.android.app.popupcalculator.Calculator",
+        automationName: "UiAutomator2"
+    }
+};
+
+
+// javascript
+const wdio = require("webdriverio");
+
+// javascript
+const opts = {
+  path: '/wd/hub',
+  port: 4723,
+  capabilities: {
+    platformName: "Android",
+    platformVersion: "8",
+    deviceName: "Android Emulator",
+    app: "/path/to/the/downloaded/ApiDemos-debug.apk",
+    appPackage: "io.appium.android.apis",
+    appActivity: ".view.TextFields",
+    automationName: "UiAutomator2"
+  }
+};
+
+async function main () {
+  const client = await wdio.remote(opts);
+
+  await client.deleteSession();
+}
+
+main();
